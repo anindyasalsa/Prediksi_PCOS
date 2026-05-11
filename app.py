@@ -37,7 +37,6 @@ CUSTOM_CSS = """
     max-width: 1280px;
 }
 
-/* Sidebar disembunyikan karena navigasi dipindahkan ke halaman utama */
 [data-testid="stSidebar"] {
     display: none;
 }
@@ -46,7 +45,6 @@ CUSTOM_CSS = """
     display: none;
 }
 
-/* Header utama: terinspirasi layout judul, tetapi tetap berbeda dan sesuai tema ungu */
 .page-intro {
     display: flex;
     align-items: flex-start;
@@ -108,7 +106,6 @@ CUSTOM_CSS = """
     white-space: nowrap;
 }
 
-/* Navigasi horizontal */
 .top-nav {
     margin-top: 0;
     margin-bottom: 1.35rem;
@@ -1099,10 +1096,6 @@ st.markdown(
                 <h1 class="page-title">Sistem Prediksi PCOS</h1>
                 <div class="page-subtitle">
                     Sistem berbasis web yang digunakan untuk memperkirakan kemungkinan seseorang mengalami Polycystic Ovary Syndrome/PCOS berdasarkan data gejala, riwayat kesehatan, dan parameter medis tertentu.
-                    
-                </div>
-            </div>
-        </div>
     </div>
     """,
     unsafe_allow_html=True,
