@@ -1133,7 +1133,6 @@ st.markdown(
     <div class="page-intro">
         <div class="page-intro-inner">
             <div class="page-icon">🩺</div>
-            <div class="page-kicker">Dashboard Klasifikasi PCOS</div>
             <h1 class="page-title">
                 Sistem Prediksi <span class="page-title-gradient">PCOS</span>
             </h1>
@@ -1141,12 +1140,6 @@ st.markdown(
                 Sistem berbasis web untuk membantu memperkirakan kemungkinan seseorang mengalami
                 <em>Polycystic Ovary Syndrome</em> berdasarkan data gejala, riwayat kesehatan,
                 dan parameter medis tertentu.
-            </div>
-            <div class="quick-stats">
-                <div class="quick-stat">🧠 <span>SVM Linear</span></div>
-                <div class="quick-stat">🧬 <span>Genetic Algorithm</span></div>
-                <div class="quick-stat">🎯 <span>Bayesian Optimization</span></div>
-                <div class="quick-stat">📁 <span>Manual & CSV</span></div>
             </div>
         </div>
     </div>
