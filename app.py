@@ -32,11 +32,12 @@ CUSTOM_CSS = """
 }
 
 .block-container {
-    padding-top: 2.8rem;
+    padding-top: 1.35rem;
     padding-bottom: 2.5rem;
     max-width: 1280px;
 }
 
+/* Sidebar disembunyikan karena navigasi dipindahkan ke halaman utama */
 [data-testid="stSidebar"] {
     display: none;
 }
@@ -45,35 +46,96 @@ CUSTOM_CSS = """
     display: none;
 }
 
+/* Header atas agar area navigasi tidak terlihat kosong */
+.app-header {
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 1.05rem 1.3rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,245,255,0.90));
+    box-shadow: 0 12px 35px rgba(88, 28, 135, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.45rem;
+    margin-bottom: 1.15rem;
+}
+
+.app-kicker {
+    color: #7e22ce;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.18rem;
+}
+
+.app-brand {
+    color: #3b0764;
+    font-size: 1.28rem;
+    line-height: 1.2;
+    font-weight: 900;
+}
+
+.app-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.45rem;
+}
+
+.app-tag {
+    display: inline-block;
+    padding: 0.38rem 0.68rem;
+    border-radius: 999px;
+    background: #f3e8ff;
+    color: #6d28d9;
+    font-size: 0.78rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* Navigasi horizontal di dalam halaman */
 .top-nav {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.35rem;
 }
 
 .st-key-top_nav .stButton button {
-    background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 55%, #7e22ce 100%) !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(139, 92, 246, 0.18) !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,245,255,0.95)) !important;
+    color: #581c87 !important;
+    border: 1px solid rgba(88, 28, 135, 0.15) !important;
     border-radius: 999px !important;
-    min-height: 64px;
-    padding: 0.9rem 1.1rem;
+    min-height: 56px;
+    padding: 0.78rem 1rem;
     font-weight: 800;
-    font-size: 1rem;
-    box-shadow: 0 12px 28px rgba(88, 28, 135, 0.16);
-    transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out, background 0.18s ease-in-out;
+    font-size: 0.98rem;
+    box-shadow: 0 8px 22px rgba(88, 28, 135, 0.07);
+    transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out, background 0.18s ease-in-out, color 0.18s ease-in-out;
 }
 
 .st-key-top_nav .stButton button:hover {
-    background: linear-gradient(135deg, #5b21b6 0%, #7e22ce 55%, #db2777 100%) !important;
+    background: linear-gradient(135deg, #6d28d9 0%, #7e22ce 55%, #db2777 100%) !important;
     color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 16px 32px rgba(88, 28, 135, 0.22);
+    box-shadow: 0 14px 28px rgba(88, 28, 135, 0.18);
 }
 
 .st-key-top_nav .stButton button:focus,
 .st-key-top_nav .stButton button:active {
     box-shadow: none !important;
     outline: none !important;
+}
+
+@media (max-width: 900px) {
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .app-tags {
+        justify-content: flex-start;
+    }
 }
 
 .hero {
@@ -1006,6 +1068,23 @@ nav_items = [
 
 page = st.session_state["page"]
 
+st.markdown(
+    """
+    <div class="app-header">
+        <div>
+            <div class="app-kicker">Dashboard Klasifikasi</div>
+            <div class="app-brand">Implementasi Sistem Prediksi PCOS</div>
+        </div>
+        <div class="app-tags">
+            <span class="app-tag">SVM Linear</span>
+            <span class="app-tag">Genetic Algorithm</span>
+            <span class="app-tag">Bayesian Optimization</span>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.markdown('<div class="top-nav">', unsafe_allow_html=True)
 with st.container(key="top_nav"):
     nav_cols = st.columns(len(nav_items), gap="medium")
@@ -1786,3 +1865,4 @@ elif page == "Edukasi PCOS":
             myth_fact_card(item["id"], item["myth"], item["fact"], item["url"], item["source"])
 
     st.markdown("<div style='height: 32px;'></div>", unsafe_allow_html=True)
+    
