@@ -1130,9 +1130,8 @@ st.markdown(
     """
     <div class="page-intro">
         <div class="page-intro-inner">
-            <div class="page-icon">🩺</div>
             <h1 class="page-title">
-                Sistem Prediksi <span class="page-title-gradient">PCOS</span>
+                <span class="page-title-gradient">Sistem Prediksi PCOS</span>
             </h1>
             <div class="page-subtitle">
                 Sistem berbasis web untuk membantu memperkirakan kemungkinan seseorang mengalami
