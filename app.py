@@ -32,12 +32,11 @@ CUSTOM_CSS = """
 }
 
 .block-container {
-    padding-top: 1.2rem;
+    padding-top: 2.8rem;
     padding-bottom: 2.5rem;
     max-width: 1280px;
 }
 
-/* Sidebar disembunyikan karena navigasi dipindahkan ke halaman utama */
 [data-testid="stSidebar"] {
     display: none;
 }
@@ -46,28 +45,29 @@ CUSTOM_CSS = """
     display: none;
 }
 
-/* Navigasi horizontal di dalam halaman */
 .top-nav {
-    margin-top: 0.2rem;
-    margin-bottom: 1.35rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .st-key-top_nav .stButton button {
-    background: #111827 !important;
+    background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 55%, #7e22ce 100%) !important;
     color: #ffffff !important;
-    border: none !important;
+    border: 1px solid rgba(139, 92, 246, 0.18) !important;
     border-radius: 999px !important;
-    min-height: 54px;
-    padding: 0.8rem 1rem;
+    min-height: 64px;
+    padding: 0.9rem 1.1rem;
     font-weight: 800;
-    font-size: 0.98rem;
-    transition: background 0.18s ease-in-out, transform 0.18s ease-in-out;
+    font-size: 1rem;
+    box-shadow: 0 12px 28px rgba(88, 28, 135, 0.16);
+    transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out, background 0.18s ease-in-out;
 }
 
 .st-key-top_nav .stButton button:hover {
-    background: #312e81 !important;
+    background: linear-gradient(135deg, #5b21b6 0%, #7e22ce 55%, #db2777 100%) !important;
     color: #ffffff !important;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(88, 28, 135, 0.22);
 }
 
 .st-key-top_nav .stButton button:focus,
