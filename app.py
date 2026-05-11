@@ -32,11 +32,12 @@ CUSTOM_CSS = """
 }
 
 .block-container {
-    padding-top: 2.15rem;
+    padding-top: 1.85rem;
     padding-bottom: 2.5rem;
     max-width: 1280px;
 }
 
+/* Sidebar disembunyikan karena navigasi dipindahkan ke halaman utama */
 [data-testid="stSidebar"] {
     display: none;
 }
@@ -45,65 +46,111 @@ CUSTOM_CSS = """
     display: none;
 }
 
+/* Header utama dibuat center agar lebih rapi dan tidak terasa kosong */
 .page-intro {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1.2rem;
-    padding: 0.35rem 0 1.1rem 0;
-    margin-bottom: 1.05rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 1.35rem 1rem 1.55rem 1rem;
+    margin-bottom: 1.15rem;
     border-bottom: 1px solid rgba(88, 28, 135, 0.14);
 }
 
-.page-intro-main {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.page-intro::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    left: 50%;
+    top: -170px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(219, 39, 119, 0.18), rgba(126, 34, 206, 0.08), transparent 70%);
+    z-index: 0;
+}
+
+.page-intro-inner {
+    position: relative;
+    z-index: 1;
 }
 
 .page-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 0.75rem auto;
+    border-radius: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 58%, #db2777 100%);
-    box-shadow: 0 14px 28px rgba(88, 28, 135, 0.20);
+    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 52%, #db2777 100%);
+    box-shadow: 0 14px 34px rgba(88, 28, 135, 0.22);
     color: white;
-    font-size: 1.65rem;
-    flex-shrink: 0;
+    font-size: 1.8rem;
 }
 
-.page-title {
-    color: #23113f;
-    font-size: 2.1rem;
-    line-height: 1.12;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    margin: 0;
-}
-
-.page-subtitle {
-    color: var(--text-muted);
-    font-size: 0.98rem;
-    line-height: 1.65;
-    margin-top: 0.35rem;
-    max-width: 850px;
-}
-
-.page-badge {
-    margin-top: 0.45rem;
+.page-kicker {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.42rem 0.72rem;
+    gap: 0.38rem;
+    padding: 0.38rem 0.72rem;
     border-radius: 999px;
     background: #f3e8ff;
     color: #6d28d9;
     font-size: 0.78rem;
     font-weight: 900;
-    white-space: nowrap;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.page-title {
+    color: #22113d;
+    font-size: 2.42rem;
+    line-height: 1.12;
+    font-weight: 950;
+    letter-spacing: -0.035em;
+    margin: 0;
+}
+
+.page-title-gradient {
+    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 48%, #db2777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1.75;
+    margin: 0.75rem auto 0 auto;
+    max-width: 850px;
+}
+
+.quick-stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.05rem;
+}
+
+.quick-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.48rem;
+    padding: 0.58rem 0.86rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(88, 28, 135, 0.13);
+    box-shadow: 0 8px 22px rgba(88, 28, 135, 0.06);
+    color: #581c87;
+    font-size: 0.84rem;
+    font-weight: 800;
+}
+
+.quick-stat span {
+    color: #334155;
+    font-weight: 700;
 }
 
 .top-nav {
@@ -138,23 +185,16 @@ CUSTOM_CSS = """
 }
 
 @media (max-width: 900px) {
-    .page-intro {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .page-title {
-        font-size: 1.72rem;
+        font-size: 1.82rem;
     }
 
-    .page-intro-main {
-        align-items: flex-start;
+    .page-subtitle {
+        font-size: 0.95rem;
     }
 
-    .page-icon {
-        width: 54px;
-        height: 54px;
-        border-radius: 18px;
+    .quick-stat {
+        font-size: 0.78rem;
     }
 }
 
@@ -1091,11 +1131,24 @@ page = st.session_state["page"]
 st.markdown(
     """
     <div class="page-intro">
-        <div class="page-intro-main">
-            <div>
-                <h1 class="page-title">Sistem Prediksi PCOS</h1>
-                <div class="page-subtitle">
-                    Sistem berbasis web yang digunakan untuk memperkirakan kemungkinan seseorang mengalami Polycystic Ovary Syndrome/PCOS berdasarkan data gejala, riwayat kesehatan, dan parameter medis tertentu.
+        <div class="page-intro-inner">
+            <div class="page-icon">🩺</div>
+            <div class="page-kicker">Dashboard Klasifikasi PCOS</div>
+            <h1 class="page-title">
+                Sistem Prediksi <span class="page-title-gradient">PCOS</span>
+            </h1>
+            <div class="page-subtitle">
+                Sistem berbasis web untuk membantu memperkirakan kemungkinan seseorang mengalami
+                <em>Polycystic Ovary Syndrome</em> berdasarkan data gejala, riwayat kesehatan,
+                dan parameter medis tertentu.
+            </div>
+            <div class="quick-stats">
+                <div class="quick-stat">🧠 <span>SVM Linear</span></div>
+                <div class="quick-stat">🧬 <span>Genetic Algorithm</span></div>
+                <div class="quick-stat">🎯 <span>Bayesian Optimization</span></div>
+                <div class="quick-stat">📁 <span>Manual & CSV</span></div>
+            </div>
+        </div>
     </div>
     """,
     unsafe_allow_html=True,
