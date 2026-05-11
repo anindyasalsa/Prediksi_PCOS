@@ -17,7 +17,7 @@ st.set_page_config(
     page_title="Prediksi PCOS - SVM Linear",
     page_icon="🩺",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 CUSTOM_CSS = """
@@ -37,45 +37,43 @@ CUSTOM_CSS = """
     max-width: 1280px;
 }
 
+/* Sidebar disembunyikan karena navigasi dipindahkan ke halaman utama */
 [data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #2e1065 0%, #581c87 48%, #831843 100%);
+    display: none;
 }
 
-[data-testid="stSidebar"] * {
-    color: #ffffff !important;
+[data-testid="collapsedControl"] {
+    display: none;
 }
 
-[data-testid="stSidebar"] .stButton button {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.20) !important;
-    color: #ffffff !important;
-    border-radius: 14px;
-    padding: 0.72rem 0.85rem;
-    text-align: left;
-    font-weight: 700;
-    transition: background 0.18s ease-in-out, border 0.18s ease-in-out, transform 0.18s ease-in-out;
+/* Navigasi horizontal di dalam halaman */
+.top-nav {
+    margin-top: 0.2rem;
+    margin-bottom: 1.35rem;
 }
 
-[data-testid="stSidebar"] .stButton button:hover {
-    background: rgba(240, 171, 252, 0.30) !important;
-    border: 1px solid rgba(240, 171, 252, 0.85) !important;
+.st-key-top_nav .stButton button {
+    background: #111827 !important;
     color: #ffffff !important;
-    transform: translateX(3px);
+    border: none !important;
+    border-radius: 999px !important;
+    min-height: 54px;
+    padding: 0.8rem 1rem;
+    font-weight: 800;
+    font-size: 0.98rem;
+    transition: background 0.18s ease-in-out, transform 0.18s ease-in-out;
 }
 
-[data-testid="stSidebar"] .stButton button:focus,
-[data-testid="stSidebar"] .stButton button:active,
-[data-testid="stSidebar"] .stButton button:focus:not(:hover),
-[data-testid="stSidebar"] .stButton button:active:not(:hover) {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+.st-key-top_nav .stButton button:hover {
+    background: #312e81 !important;
     color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.st-key-top_nav .stButton button:focus,
+.st-key-top_nav .stButton button:active {
     box-shadow: none !important;
     outline: none !important;
-}
-
-[data-testid="stSidebar"] .stButton {
-    margin-bottom: 0.45rem;
 }
 
 .hero {
@@ -999,9 +997,6 @@ if "page" not in st.session_state:
     st.session_state["page"] = "Beranda"
 
 
-st.sidebar.markdown("## Implementasi Sistem Prediksi PCOS")
-st.sidebar.markdown("<hr class='soft'>", unsafe_allow_html=True)
-
 nav_items = [
     ("Beranda", "🏠 Beranda"),
     ("Prediksi PCOS", "🩺 Prediksi PCOS"),
@@ -1009,13 +1004,18 @@ nav_items = [
     ("Edukasi PCOS", "📚 Edukasi PCOS"),
 ]
 
-for page_key, label in nav_items:
-    if st.sidebar.button(label, key=f"nav_{page_key}", use_container_width=True):
-        set_page(page_key)
-        st.rerun()
-
-st.sidebar.markdown("<hr class='soft'>", unsafe_allow_html=True)
 page = st.session_state["page"]
+
+st.markdown('<div class="top-nav">', unsafe_allow_html=True)
+with st.container(key="top_nav"):
+    nav_cols = st.columns(len(nav_items), gap="medium")
+
+    for col, (page_key, label) in zip(nav_cols, nav_items):
+        with col:
+            if st.button(label, key=f"nav_{page_key}", use_container_width=True):
+                set_page(page_key)
+                st.rerun()
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 if page == "Beranda":
