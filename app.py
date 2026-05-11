@@ -1095,17 +1095,14 @@ st.markdown(
     """
     <div class="page-intro">
         <div class="page-intro-main">
-            <div class="page-icon">🩺</div>
             <div>
                 <h1 class="page-title">Sistem Prediksi PCOS</h1>
                 <div class="page-subtitle">
-                    Klasifikasi <em>Polycystic Ovary Syndrome</em> melalui input manual dan unggah CSV,
-                    dengan model SVM linear, seleksi fitur <em>Genetic Algorithm</em>, dan optimasi
-                    <em>Bayesian Optimization</em>.
+                    Sistem berbasis web yang digunakan untuk memperkirakan kemungkinan seseorang mengalami Polycystic Ovary Syndrome/PCOS berdasarkan data gejala, riwayat kesehatan, dan parameter medis tertentu.
+                    
                 </div>
             </div>
         </div>
-        <div class="page-badge">● Model Klasifikasi</div>
     </div>
     """,
     unsafe_allow_html=True,
