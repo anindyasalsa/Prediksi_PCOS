@@ -106,8 +106,8 @@ CUSTOM_CSS = """
     padding: 1.35rem 1.45rem;
     background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,245,255,0.86));
     box-shadow: 0 12px 35px rgba(88, 28, 135, 0.08);
-    min-height: 260px;
-    height: 100%;
+    min-height: unset;
+    height: auto;
     box-sizing: border-box;
 }
 
