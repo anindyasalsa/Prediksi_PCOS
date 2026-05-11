@@ -32,7 +32,7 @@ CUSTOM_CSS = """
 }
 
 .block-container {
-    padding-top: 1.35rem;
+    padding-top: 2.15rem;
     padding-bottom: 2.5rem;
     max-width: 1280px;
 }
@@ -46,71 +46,84 @@ CUSTOM_CSS = """
     display: none;
 }
 
-/* Header atas agar area navigasi tidak terlihat kosong */
-.app-header {
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 1.05rem 1.3rem;
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,245,255,0.90));
-    box-shadow: 0 12px 35px rgba(88, 28, 135, 0.08);
+/* Header utama: terinspirasi layout judul, tetapi tetap berbeda dan sesuai tema ungu */
+.page-intro {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 1.2rem;
+    padding: 0.35rem 0 1.1rem 0;
+    margin-bottom: 1.05rem;
+    border-bottom: 1px solid rgba(88, 28, 135, 0.14);
+}
+
+.page-intro-main {
+    display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 0.45rem;
-    margin-bottom: 1.15rem;
 }
 
-.app-kicker {
-    color: #7e22ce;
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.18rem;
-}
-
-.app-brand {
-    color: #3b0764;
-    font-size: 1.28rem;
-    line-height: 1.2;
-    font-weight: 900;
-}
-
-.app-tags {
+.page-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.45rem;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 58%, #db2777 100%);
+    box-shadow: 0 14px 28px rgba(88, 28, 135, 0.20);
+    color: white;
+    font-size: 1.65rem;
+    flex-shrink: 0;
 }
 
-.app-tag {
-    display: inline-block;
-    padding: 0.38rem 0.68rem;
+.page-title {
+    color: #23113f;
+    font-size: 2.1rem;
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.page-subtitle {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-top: 0.35rem;
+    max-width: 850px;
+}
+
+.page-badge {
+    margin-top: 0.45rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.72rem;
     border-radius: 999px;
     background: #f3e8ff;
     color: #6d28d9;
     font-size: 0.78rem;
-    font-weight: 800;
+    font-weight: 900;
     white-space: nowrap;
 }
 
-/* Navigasi horizontal di dalam halaman */
+/* Navigasi horizontal */
 .top-nav {
     margin-top: 0;
     margin-bottom: 1.35rem;
 }
 
 .st-key-top_nav .stButton button {
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,245,255,0.95)) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
     color: #581c87 !important;
-    border: 1px solid rgba(88, 28, 135, 0.15) !important;
+    border: 1px solid rgba(88, 28, 135, 0.16) !important;
     border-radius: 999px !important;
-    min-height: 56px;
-    padding: 0.78rem 1rem;
+    min-height: 54px;
+    padding: 0.72rem 0.95rem;
     font-weight: 800;
-    font-size: 0.98rem;
-    box-shadow: 0 8px 22px rgba(88, 28, 135, 0.07);
+    font-size: 0.96rem;
+    box-shadow: 0 8px 20px rgba(88, 28, 135, 0.06);
     transition: transform 0.18s ease-in-out, box-shadow 0.18s ease-in-out, background 0.18s ease-in-out, color 0.18s ease-in-out;
 }
 
@@ -128,13 +141,23 @@ CUSTOM_CSS = """
 }
 
 @media (max-width: 900px) {
-    .app-header {
+    .page-intro {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .app-tags {
-        justify-content: flex-start;
+    .page-title {
+        font-size: 1.72rem;
+    }
+
+    .page-intro-main {
+        align-items: flex-start;
+    }
+
+    .page-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 18px;
     }
 }
 
@@ -1070,16 +1093,19 @@ page = st.session_state["page"]
 
 st.markdown(
     """
-    <div class="app-header">
-        <div>
-            <div class="app-kicker">Dashboard Klasifikasi</div>
-            <div class="app-brand">Implementasi Sistem Prediksi PCOS</div>
+    <div class="page-intro">
+        <div class="page-intro-main">
+            <div class="page-icon">🩺</div>
+            <div>
+                <h1 class="page-title">Sistem Prediksi PCOS</h1>
+                <div class="page-subtitle">
+                    Klasifikasi <em>Polycystic Ovary Syndrome</em> melalui input manual dan unggah CSV,
+                    dengan model SVM linear, seleksi fitur <em>Genetic Algorithm</em>, dan optimasi
+                    <em>Bayesian Optimization</em>.
+                </div>
+            </div>
         </div>
-        <div class="app-tags">
-            <span class="app-tag">SVM Linear</span>
-            <span class="app-tag">Genetic Algorithm</span>
-            <span class="app-tag">Bayesian Optimization</span>
-        </div>
+        <div class="page-badge">● Model Klasifikasi</div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -1087,7 +1113,7 @@ st.markdown(
 
 st.markdown('<div class="top-nav">', unsafe_allow_html=True)
 with st.container(key="top_nav"):
-    nav_cols = st.columns(len(nav_items), gap="medium")
+    nav_space_left, *nav_cols, nav_space_right = st.columns([0.18, 1, 1, 1, 1, 0.18], gap="medium")
 
     for col, (page_key, label) in zip(nav_cols, nav_items):
         with col:
@@ -1865,4 +1891,3 @@ elif page == "Edukasi PCOS":
             myth_fact_card(item["id"], item["myth"], item["fact"], item["url"], item["source"])
 
     st.markdown("<div style='height: 32px;'></div>", unsafe_allow_html=True)
-    
