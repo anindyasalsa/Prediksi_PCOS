@@ -1,0 +1,8 @@
+Komponen,Nilai
+Jumlah data,541
+Jumlah fitur awal,41
+Jumlah fitur setelah GA,36
+Data latih,432
+Data uji,109
+Target 0: Tidak PCOS,364
+Target 1: PCOS,177

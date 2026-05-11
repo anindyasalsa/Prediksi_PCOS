@@ -1,0 +1,57 @@
+{
+  "model_name": "Bayesian Optimization SVM + GA",
+  "kernel": "linear",
+  "C": 0.005461850839311912,
+  "accuracy": 0.926605504587156,
+  "precision": 0.868421052631579,
+  "recall": 0.9166666666666666,
+  "f1_score": 0.8918918918918919,
+  "roc_auc": 0.9634703196347032,
+  "best_cv_roc_auc": 0.952324,
+  "train_rows": 432,
+  "test_rows": 109,
+  "total_rows": 541,
+  "original_feature_count": 41,
+  "selected_feature_count": 36,
+  "target_distribution": {
+    "0": 364,
+    "1": 177
+  },
+  "confusion_matrix": [
+    [
+      68,
+      5
+    ],
+    [
+      3,
+      33
+    ]
+  ],
+  "classification_report": {
+    "Tidak PCOS": {
+      "precision": 0.9577464788732394,
+      "recall": 0.9315068493150684,
+      "f1-score": 0.9444444444444444,
+      "support": 73.0
+    },
+    "PCOS": {
+      "precision": 0.868421052631579,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.8918918918918919,
+      "support": 36.0
+    },
+    "accuracy": 0.926605504587156,
+    "macro avg": {
+      "precision": 0.9130837657524091,
+      "recall": 0.9240867579908676,
+      "f1-score": 0.9181681681681682,
+      "support": 109.0
+    },
+    "weighted avg": {
+      "precision": 0.9282445032337919,
+      "recall": 0.926605504587156,
+      "f1-score": 0.9270876380968124,
+      "support": 109.0
+    }
+  }
+}

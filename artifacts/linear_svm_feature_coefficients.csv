@@ -1,0 +1,37 @@
+Feature,Coefficient,Abs Coefficient,Direction
+Follicle No. (R),0.3549390556979849,0.3549390556979849,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Follicle No. (L),0.28037809091949706,0.28037809091949706,Mendorong ke kelas PCOS jika nilai fitur meningkat
+hair growth(Y/N),0.22389056175764788,0.22389056175764788,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Skin darkening (Y/N),0.21194137221211232,0.21194137221211232,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Weight gain(Y/N),0.16817638071005772,0.16817638071005772,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Cycle(R/I),0.1455268919168696,0.1455268919168696,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Pimples(Y/N),0.1227340227331836,0.1227340227331836,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Cycle length(days),-0.10662585697695807,0.10662585697695807,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+Fast food (Y/N),0.09925011287045685,0.09925011287045685,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Avg. F size (L) (mm),0.08445008486978833,0.08445008486978833,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Age (yrs),-0.0769075815685226,0.0769075815685226,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+PRG(ng/mL),-0.07053095658877727,0.07053095658877727,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+Pulse rate(bpm),0.06450948327949264,0.06450948327949264,Mendorong ke kelas PCOS jika nilai fitur meningkat
+AMH(ng/mL),0.05873769747160779,0.05873769747160779,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Reg.Exercise(Y/N),0.04928497800632538,0.04928497800632538,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Hair loss(Y/N),0.04703286583263827,0.04703286583263827,Mendorong ke kelas PCOS jika nilai fitur meningkat
+TSH (mIU/L),0.042273526234813785,0.042273526234813785,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Hip(inch),0.04216158621463109,0.04216158621463109,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Marraige Status (Yrs),-0.03596211398331405,0.03596211398331405,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+BP _Diastolic (mmHg),-0.034587130422345735,0.034587130422345735,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+Waist(inch),0.033953611606819145,0.033953611606819145,Mendorong ke kelas PCOS jika nilai fitur meningkat
+LH(mIU/mL),0.03332160132783413,0.03332160132783413,Mendorong ke kelas PCOS jika nilai fitur meningkat
+I   beta-HCG(mIU/mL),-0.022700342141825227,0.022700342141825227,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+Endometrium (mm),0.01817684299906707,0.01817684299906707,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Waist:Hip Ratio,-0.01719250406061329,0.01719250406061329,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+Hb(g/dl),0.014946062494855753,0.014946062494855753,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Height(Cm),0.013645335715440285,0.013645335715440285,Mendorong ke kelas PCOS jika nilai fitur meningkat
+PRL(ng/mL),0.013613924246610402,0.013613924246610402,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Pregnant(Y/N),0.01339532271930038,0.01339532271930038,Mendorong ke kelas PCOS jika nilai fitur meningkat
+BP _Systolic (mmHg),0.0128597298929657,0.0128597298929657,Mendorong ke kelas PCOS jika nilai fitur meningkat
+FSH(mIU/mL),-0.00861966998158155,0.00861966998158155,Mendorong ke kelas tidak PCOS jika nilai fitur meningkat
+RR (breaths/min),0.006150497532713895,0.006150497532713895,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Weight (Kg),0.005946829585025153,0.005946829585025153,Mendorong ke kelas PCOS jika nilai fitur meningkat
+Vit D3 (ng/mL),0.003945408661911907,0.003945408661911907,Mendorong ke kelas PCOS jika nilai fitur meningkat
+II    beta-HCG(mIU/mL),0.0007861036434141577,0.0007861036434141577,Mendorong ke kelas PCOS jika nilai fitur meningkat
+FSH/LH,0.0007521117282516397,0.0007521117282516397,Mendorong ke kelas PCOS jika nilai fitur meningkat
