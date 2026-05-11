@@ -37,7 +37,6 @@ CUSTOM_CSS = """
     max-width: 1280px;
 }
 
-/* Sidebar disembunyikan karena navigasi dipindahkan ke halaman utama */
 [data-testid="stSidebar"] {
     display: none;
 }
@@ -46,7 +45,6 @@ CUSTOM_CSS = """
     display: none;
 }
 
-/* Header utama dibuat center agar lebih rapi dan tidak terasa kosong */
 .page-intro {
     position: relative;
     overflow: hidden;
@@ -1166,7 +1164,7 @@ if page == "Beranda":
             <h1>Prediksi <em>Polycystic Ovary Syndrome</em></h1>
             <p>
                 Klasifikasi <em>Polycystic Ovary Syndrome</em> Menggunakan Algoritma
-                <em>Support Vector Machine</em> dengan Seleksi Fitur
+                <em>Support Vector Machine Kernel Linear</em> dengan Seleksi Fitur
                 <em>Genetic Algorithm</em> dan Optimasi <em>Hyperparameter</em>
                 Berbasis <em>Bayesian Optimization</em>.
             </p>
@@ -1804,7 +1802,7 @@ elif page == "Edukasi PCOS":
             <div class="edu-card">
                 <h3>Apa itu PCOS?</h3>
                 <p>
-                    Polycystic Ovary Syndrome atau PCOS adalah gangguan hormonal yang dapat terjadi pada perempuan
+                    <em>Polycystic Ovary Syndrome</em> atau PCOS adalah gangguan hormonal yang dapat terjadi pada perempuan
                     usia reproduktif. Kondisi ini berkaitan dengan ketidakseimbangan hormon, gangguan ovulasi,
                     siklus menstruasi tidak teratur, serta perubahan metabolik tubuh.
                 </p>
