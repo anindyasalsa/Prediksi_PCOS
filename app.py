@@ -1064,7 +1064,7 @@ if page == "Beranda":
     with c3:
         info_card(
             "Output",
-            "Sistem menampilkan hasil klasifikasi PCOS dan skor keputusan model.",
+            "Sistem menampilkan hasil klasifikasi PCOS dan skor keputusan model terhadap prediksi.",
             "📊",
         )
 
@@ -1442,7 +1442,7 @@ elif page == "Informasi Model":
                 )
                 h1, h2 = st.columns(2, gap="large")
                 with h1:
-                    eda_card("Histogram dan Boxplot Mini", "Melihat sebaran nilai fitur berdasarkan kelas PCOS dan tidak PCOS.")
+                    eda_card("Histogram dan Boxplot", "Melihat sebaran nilai fitur berdasarkan kelas PCOS dan tidak PCOS.")
                     st.plotly_chart(numeric_histogram(eda_df, feature_choice), use_container_width=True)
                 with h2:
                     eda_card("Boxplot Per Kelas", "Membandingkan median, rentang nilai, dan outlier antara kelas PCOS dan tidak PCOS.")
