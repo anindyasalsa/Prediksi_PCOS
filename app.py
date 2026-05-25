@@ -1489,14 +1489,14 @@ elif page == "Informasi Model":
         """
         <div class="hero">
             <h1>Informasi Model</h1>
-            <p>Menampilkan ringkasan dataset, EDA, preprocessing, evaluasi performa, dan interpretasi model klasifikasi PCOS.</p>
+            <p>Menampilkan ringkasan dataset, EDA, preprocessing, dan evaluasi performa model klasifikasi PCOS.</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
     tab_dataset, tab_eda, tab_prep, tab_eval, tab_interpret = st.tabs(
-        ["Dataset", "EDA", "Preprocessing", "Evaluasi", "Interpretasi"]
+        ["Dataset", "EDA", "Preprocessing", "Evaluasi"]
     )
 
     with tab_dataset:
@@ -1690,26 +1690,6 @@ elif page == "Informasi Model":
         st.markdown("<div style='height: 18px;'></div>", unsafe_allow_html=True)
         st.markdown("SVM + GA sebelum Bayesian Optimization")
         st.dataframe(tables["ga"], use_container_width=True, hide_index=True)
-
-    with tab_interpret:
-        st.markdown('<div class="section-title-center">Interpretasi SVM Linear</div>', unsafe_allow_html=True)
-        st.markdown(
-            """
-            <div class="glass-card">
-                Pada SVM kernel linear, koefisien dapat digunakan untuk melihat kontribusi relatif fitur terhadap batas keputusan model.
-                Nilai koefisien yang besar secara absolut menunjukkan fitur yang lebih kuat memengaruhi keputusan model.
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
-        coef_df = tables["coef"]
-        itbl, iplot = st.columns([1.15, 1], gap="large")
-        with itbl:
-            st.dataframe(coef_df, use_container_width=True, hide_index=True)
-        with iplot:
-            st.pyplot(plot_barh(coef_df, "Abs Coefficient", "Feature", "Top Koefisien Absolut SVM Linear", top_n=15))
-
 
 elif page == "Edukasi PCOS":
     st.markdown(
