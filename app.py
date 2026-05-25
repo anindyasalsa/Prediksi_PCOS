@@ -1267,6 +1267,7 @@ elif page == "Prediksi PCOS":
 
             with tab2:
                 col1, col2 = st.columns(2)
+            
                 with col1:
                     values["Cycle(R/I)"] = st.radio(
                         "Cycle(R/I)",
@@ -1275,7 +1276,8 @@ elif page == "Prediksi PCOS":
                         key="cycle_code",
                         help="Gunakan kode sesuai dataset penelitian. Umumnya 2 (Regular) dan 4 (Irregular) muncul sebagai kode utama pada data.",
                     )
-                     values["Cycle length(days)"] = st.number_input(
+            
+                    values["Cycle length(days)"] = st.number_input(
                         "Panjang siklus (hari)",
                         min_value=int(min_for("Cycle length(days)")),
                         max_value=int(max_for("Cycle length(days)")),
@@ -1283,7 +1285,7 @@ elif page == "Prediksi PCOS":
                         step=1,
                         format="%d"
                     )
-                    
+            
                     values["Marraige Status (Yrs)"] = st.number_input(
                         "Lama menikah (tahun)",
                         min_value=int(min_for("Marraige Status (Yrs)")),
@@ -1292,8 +1294,10 @@ elif page == "Prediksi PCOS":
                         step=1,
                         format="%d"
                     )
+            
                     values["Pregnant(Y/N)"] = yes_no_input("Sedang/pernah hamil", "pregnant")
                     values["Weight gain(Y/N)"] = yes_no_input("Riwayat kenaikan berat badan", "weight_gain")
+            
                 with col2:
                     values["hair growth(Y/N)"] = yes_no_input("Pertumbuhan rambut berlebih", "hair_growth")
                     values["Skin darkening (Y/N)"] = yes_no_input("Penggelapan kulit", "skin_darkening")
