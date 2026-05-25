@@ -1495,7 +1495,7 @@ elif page == "Informasi Model":
         unsafe_allow_html=True,
     )
 
-    tab_dataset, tab_eda, tab_prep, tab_eval, tab_interpret = st.tabs(
+    tab_dataset, tab_eda, tab_prep, tab_eval = st.tabs(
         ["Dataset", "EDA", "Preprocessing", "Evaluasi"]
     )
 
