@@ -1373,34 +1373,7 @@ elif page == "Prediksi PCOS":
                     unsafe_allow_html=True,
                 )
 
-            st.markdown('<div class="section-title">Kontribusi Fitur pada Prediksi Ini</div>', unsafe_allow_html=True)
-            coef = model.coef_[0]
-            contributions = X_input.iloc[0].values * coef
-            contrib_df = pd.DataFrame(
-                {
-                    "Fitur": SELECTED_FEATURES,
-                    "Nilai setelah scaling": X_input.iloc[0].values,
-                    "Koefisien": coef,
-                    "Kontribusi": contributions,
-                    "Abs Kontribusi": np.abs(contributions),
-                }
-            ).sort_values("Abs Kontribusi", ascending=False)
-
-            ctbl, cplot = st.columns([1.15, 1])
-            with ctbl:
-                st.dataframe(contrib_df.head(12), use_container_width=True, hide_index=True)
-            with cplot:
-                st.pyplot(
-                    plot_barh(
-                        contrib_df.rename(columns={"Fitur": "Feature"}),
-                        "Abs Kontribusi",
-                        "Feature",
-                        "Top Kontribusi Fitur",
-                        top_n=12,
-                    )
-                )
-            st.caption("Kontribusi fitur menjelaskan mekanisme keputusan model linear, bukan hubungan sebab-akibat medis.")
-
+            
     with tab_batch:
         st.markdown('<div class="section-title">Prediksi Batch Menggunakan CSV</div>', unsafe_allow_html=True)
         st.caption("Gunakan mode ini untuk memprediksi banyak baris data sekaligus.")
