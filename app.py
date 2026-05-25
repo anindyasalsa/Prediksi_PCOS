@@ -1246,7 +1246,14 @@ elif page == "Prediksi PCOS":
             with tab1:
                 col1, col2 = st.columns(2)
                 with col1:
-                    values["Age (yrs)"] = make_number_input("Age (yrs)", "Usia (tahun)")
+                    values["Age (yrs)"] = st.number_input(
+                        "Usia (tahun)",
+                        min_value=int(min_for("Age (yrs)")),
+                        max_value=int(max_for("Age (yrs)")),
+                        value=int(default_for("Age (yrs)")),
+                        step=1,
+                        format="%d"
+                    )
                     values["Weight (Kg)"] = make_number_input("Weight (Kg)", "Berat badan (Kg)")
                     values["Height(Cm)"] = make_number_input("Height(Cm)", "Tinggi badan (Cm)")
                     values["Hip(inch)"] = make_number_input("Hip(inch)", "Lingkar panggul (inch)")
@@ -1263,13 +1270,28 @@ elif page == "Prediksi PCOS":
                 with col1:
                     values["Cycle(R/I)"] = st.radio(
                         "Cycle(R/I)",
-                        options=[2, 4, 5],
+                        options=[2, 4],
                         horizontal=True,
                         key="cycle_code",
-                        help="Gunakan kode sesuai dataset penelitian. Umumnya 2 dan 4 muncul sebagai kode utama pada data.",
+                        help="Gunakan kode sesuai dataset penelitian. Umumnya 2 (Regular) dan 4 (Irregular) muncul sebagai kode utama pada data.",
                     )
-                    values["Cycle length(days)"] = make_number_input("Cycle length(days)", "Panjang siklus (hari)")
-                    values["Marraige Status (Yrs)"] = make_number_input("Marraige Status (Yrs)", "Lama menikah (tahun)")
+                     values["Cycle length(days)"] = st.number_input(
+                        "Panjang siklus (hari)",
+                        min_value=int(min_for("Cycle length(days)")),
+                        max_value=int(max_for("Cycle length(days)")),
+                        value=int(default_for("Cycle length(days)")),
+                        step=1,
+                        format="%d"
+                    )
+                    
+                    values["Marraige Status (Yrs)"] = st.number_input(
+                        "Lama menikah (tahun)",
+                        min_value=int(min_for("Marraige Status (Yrs)")),
+                        max_value=int(max_for("Marraige Status (Yrs)")),
+                        value=int(default_for("Marraige Status (Yrs)")),
+                        step=1,
+                        format="%d"
+                    )
                     values["Pregnant(Y/N)"] = yes_no_input("Sedang/pernah hamil", "pregnant")
                     values["Weight gain(Y/N)"] = yes_no_input("Riwayat kenaikan berat badan", "weight_gain")
                 with col2:
